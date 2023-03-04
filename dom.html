@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manip Dom</title>
+    </head>
+    <body>
+        <style>
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+                
+            }
+
+            .red {
+                color: red;
+                width: 50%;
+                border: 3px solid green;
+                padding: 10px;
+            }
+
+            .red label {
+                display: block;
+                margin: 10px;
+            }
+
+            #reset {
+                margin: 10px;
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="red">
+                <label>
+                    <input type="radio" name="choix" value="Semaine" id="Semaine">
+                    Semaine
+                </label>
+                <label>
+                    <input type="radio" name="choix" value="Week-end" id="Week-end">
+                    Week-end
+                </label>
+                <form onsubmit="valider(); return false;">
+                    <label>
+                        Choix :
+                        <input type="text" name="nom" id="texte">
+                    </label>
+                    <button type="submit">Envoyer</button>
+                    <button type="reset" onclick="resetButton()" id="reset">Reset</button>
+                </form>
+            </div>
+        </div>
+        <script>
+
+            function valider() {
+                var texte = document
+                    .getElementById("texte")
+                    .value;
+
+                if (texte.toLowerCase() === "semaine") {
+                    document
+                        .getElementById("Semaine")
+                        .checked = true;
+                    alert("Vous avez choisi la semaine");
+                } else if (texte.toLowerCase() === "week-end") {
+                    document
+                        .getElementById("Week-end")
+                        .checked = true;
+                    alert("Vous avez choisi le week-end");
+                } else {
+                    alert("Veuillez saisir semaine ou week-end")
+                }
+            }
+
+            function resetButton() {
+                document
+                    .getElementById("Semaine")
+                    .checked = false;
+                document
+                    .getElementById("Week-end")
+                    .checked = false;
+            }
+        </script>
+    </body>
+</html>
+
+<!--JavaScript-->
+
+<!--Il s'agit de deux fonctions en JavaScript. La première fonction valider() est appelée lorsque l'utilisateur clique sur le bouton "Envoyer" dans le formulaire. Cette fonction vérifie le texte entré dans le champ de saisie et sélectionne le bouton radio correspondant en fonction du texte saisi. Si le texte ne correspond ni à "semaine" ni à "week-end", une boîte de dialogue d'alerte s'affiche pour avertir l'utilisateur de saisir un texte valide.
+
+La seconde fonction resetButton() est appelée lorsque l'utilisateur clique sur le bouton "Reset". Cette fonction réinitialise les boutons radio en décochant les deux options.-->
+
+<!--CSS-->
+
+<!--Dans cet exemple, la classe .container est utilisée pour envelopper la
+classe .red et la propriété display: flex; est utilisée pour définir un
+conteneur flexible. La propriété align-items: center; est utilisée pour centrer
+verticalement l'élément dans le conteneur. La propriété justify-content: center;
+est utilisée pour centrer horizontalement l'élément dans le conteneur. La
+hauteur de .container est définie à 100vh pour centrer l'élément verticalement
+dans la fenêtre du navigateur-->
